@@ -1,0 +1,12 @@
+  - name: install bun
+    npm:
+      name: bun
+      global: true
+    tags:
+    - npm
+  - name: typescript
+    npm:
+      name: typescript
+      global: true
+    tags:
+    - npm

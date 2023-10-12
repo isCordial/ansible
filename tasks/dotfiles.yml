@@ -1,0 +1,10 @@
+  - name: Cloning .dotfiles repo
+    ansible.builtin.git:
+      repo: 'https://github.com/isCordial/.dotfiles.git'
+      dest: ~/.dotfiles
+    tags:
+    - dotfiles
+  - name: Checking out to from-scratch branch
+    shell: cd ~/.dotfiles && git checkout from-scratch
+    tags:
+    - dotfiles

@@ -1,0 +1,5 @@
+  - name: Install fuzzy finder
+    apt:
+      name: fzf
+    tags:
+    - misc

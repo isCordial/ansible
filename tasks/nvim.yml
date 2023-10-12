@@ -1,0 +1,65 @@
+  - name: Cloning Neovim github repo
+    ansible.builtin.git:
+      repo: 'https://github.com/neovim/neovim'
+      dest: ~/repos/public/neovim
+    tags:
+    - nvim
+
+  - name: apt installing dependencies for Debian Linux...
+    apt:
+      name:
+        - ninja-build
+        - gettext
+        - cmake
+        - unzip
+        - curl
+      state: present
+    when: ansible_os_family == "Debian"
+    tags:
+    - nvim
+
+  - name: brew installing dependencies for MacOs...
+    homebrew:
+      name:
+        - ninja
+        - cmake
+        - gettext
+        - curl
+      state: present
+    when: ansible_os_family == "Darwin"
+    tags:
+    - nvim
+
+
+  # - name: Build Targets
+  #   command:
+  #     cmd: cmake --build build --target help
+  #     chdir: ~/repos/public/neovim
+  #   become: yes
+  #   tags:
+  #   - nvim
+
+  - name: Checking out to stable branch...
+    command:
+      cmd: git checkout stable
+      chdir: ~/repos/public/neovim
+    become: yes
+    tags:
+    - nvim
+
+
+  - name: Building Neovim
+    command:
+      cmd: make CMAKE_BUILD_TYPE=Release
+      chdir: ~/repos/public/neovim
+    become: yes
+    tags:
+    - nvim
+
+  - name: Installing Neovim
+    command:
+      cmd: make install
+      chdir: ~/repos/public/neovim
+    become: yes
+    tags:
+    - nvim
