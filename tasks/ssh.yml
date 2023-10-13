@@ -5,6 +5,11 @@
     state: directory
   tags:
     - ssh
+- name: Ensure SSH agent is running
+  shell: |
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+      eval $(ssh-agent -s)
+    fi
 - name: Install ssh key
   copy:
     src: "{{ source_key }}"
