@@ -1,5 +1,6 @@
   - name: Remove Neovim
     shell: rm -rf ~/repos/public/neovim
+    become_user: t
     tags:
     - nvim
 
@@ -7,6 +8,7 @@
     ansible.builtin.git:
       repo: 'https://github.com/neovim/neovim'
       dest: ~/repos/public/neovim
+    become_user: t
     tags:
     - nvim
 
@@ -50,7 +52,7 @@
     command:
       cmd: git checkout stable
       chdir: ~/repos/public/neovim
-    become: true
+    become_user: t
     tags:
     - nvim
 
@@ -58,7 +60,7 @@
     command:
       cmd: make CMAKE_BUILD_TYPE=Release
       chdir: ~/repos/public/neovim
-    become: true
+    become_user: t
     tags:
     - nvim
 
@@ -66,6 +68,6 @@
     command:
       cmd: make install
       chdir: ~/repos/public/neovim
-    become: true
+    become_user: t
     tags:
     - nvim
