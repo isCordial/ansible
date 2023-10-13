@@ -33,5 +33,6 @@
     user: "{{ lookup('env', 'USER') }}"
     state: present
     key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+  become_user: t
   tags:
    - ssh
