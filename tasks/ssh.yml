@@ -30,9 +30,8 @@
 
 - name: Set authorized keys
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: t
     state: present
-    key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
-  become_user: t
+    key: {{ lookup("file", "/home/t/.ssh/id_ed25519.pub") }}
   tags:
    - ssh
