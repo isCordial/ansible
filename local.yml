@@ -8,9 +8,9 @@
     become: true
       apt:
         update_cache: true
+        state: present
       tags:
       - install
-      - core
   tasks:
   - include: tasks/ssh.yml
   - include: tasks/git-setup.yml
