@@ -1,3 +1,9 @@
+- name: Ensure SSH agent is running
+  shell: |
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+      eval $(ssh-agent -s)
+    fi
+
 - name: Ensure .ssh directory exists.
   file:
     dest: "{{ dest_key | dirname }}"
@@ -5,11 +11,7 @@
     state: directory
   tags:
     - ssh
-- name: Ensure SSH agent is running
-  shell: |
-    if [ -z "$SSH_AUTH_SOCK" ]; then
-      eval $(ssh-agent -s)
-    fi
+
 - name: Install ssh key
   copy:
     src: "{{ source_key }}"
@@ -17,6 +19,7 @@
     mode: 0600
   tags:
     - ssh
+
 - name: Install ssh key public
   copy:
     src: "{{ source_key }}.pub"
@@ -24,12 +27,11 @@
     mode: 0644
   tags:
     - ssh
-- name: Set authorized key took from file
+
+- name: Set authorized keys
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
     key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
-  with_fileglob:
-  - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
   tags:
    - ssh
