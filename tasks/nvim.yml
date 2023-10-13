@@ -48,26 +48,45 @@
   #   tags:
   #   - nvim
 
-  - name: Checking out to stable branch...
-    command:
-      cmd: git checkout stable
-      chdir: ~/repos/public/neovim
+  # - name: Checking out to stable branch...
+  #   command:
+  #     cmd: git checkout stable
+  #     chdir: ~/repos/public/neovim
+  #   become_user: t
+  #   tags:
+  #   - nvim
+
+  # - name: Building Neovim
+  #   command:
+  #     cmd: make CMAKE_BUILD_TYPE=Release
+  #     chdir: ~/repos/public/neovim
+  #   become: true
+  #   tags:
+  #   - nvim
+
+  # - name: Installing Neovim
+  #   command:
+  #     cmd: make install
+  #     chdir: ~/repos/public/neovim
+  #   become: true
+  #   tags:
+  #   - nvim
+
+  - name: Checkout to stable branch
+    shell: cd ~/repos/public/neovim && git checkout stable
     become_user: t
     tags:
     - nvim
 
+
   - name: Building Neovim
-    command:
-      cmd: make CMAKE_BUILD_TYPE=Release
-      chdir: ~/repos/public/neovim
+    shell: cd {{ lookup('env', 'HOME') }}/repos/public/neovim && make -j 20
     become: true
     tags:
     - nvim
 
   - name: Installing Neovim
-    command:
-      cmd: make install
-      chdir: ~/repos/public/neovim
+    shell: cd {{ lookup('env', 'HOME') }}/repos/public/neovim && make install
     become: true
     tags:
     - nvim
