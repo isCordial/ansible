@@ -20,6 +20,7 @@
         - curl
       state: present
     when: ansible_os_family == "Debian"
+    become: true
     tags:
     - nvim
 
@@ -32,6 +33,7 @@
         - curl
       state: present
     when: ansible_os_family == "Darwin"
+    become: true
     tags:
     - nvim
 
@@ -48,7 +50,7 @@
     command:
       cmd: git checkout stable
       chdir: ~/repos/public/neovim
-    become: yes
+    become: true
     tags:
     - nvim
 
@@ -56,7 +58,7 @@
     command:
       cmd: make CMAKE_BUILD_TYPE=Release
       chdir: ~/repos/public/neovim
-    become: yes
+    become: true
     tags:
     - nvim
 
@@ -64,6 +66,6 @@
     command:
       cmd: make install
       chdir: ~/repos/public/neovim
-    become: yes
+    become: true
     tags:
     - nvim
