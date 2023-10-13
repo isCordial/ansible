@@ -60,6 +60,7 @@
     command:
       cmd: make CMAKE_BUILD_TYPE=Release
       chdir: ~/repos/public/neovim
+    become: true
     become_user: t
     tags:
     - nvim
@@ -68,6 +69,7 @@
     command:
       cmd: make install
       chdir: ~/repos/public/neovim
+    become: true
     become_user: t
     tags:
     - nvim
