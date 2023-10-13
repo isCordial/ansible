@@ -31,7 +31,7 @@
   - node
 
 - name: npmjs global settings
-  shell: npm config set prefix '~/.local/.npm-global'
+  shell: npm config set prefix '~/.local/.npm-global/bin'
   tags:
   - install
   - node
