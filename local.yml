@@ -1,0 +1,22 @@
+- hosts: localhost
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    personal: "{{ lookup('env', 'HOME') }}/repos/personal"
+  pre_tasks:
+    - name: Update cache / repos
+    become: true
+      apt:
+        update_cache: true
+      tags:
+      - install
+      - core
+  tasks:
+  - include: tasks/ssh.yml
+  - include: tasks/git-setup.yml
+  - include: tasks/node.yml
+  - include: tasks/npm-installs.yml
+  - include: tasks/zsh.yml
+  - include: tasks/nvim.yml
+  - include: tasks/dotfiles.yml
+  - include: tasks/misc.yml

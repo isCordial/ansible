@@ -1,3 +1,8 @@
+  - name: Remove Neovim
+    shell: rm -rf ~/repos/public/neovim
+    tags:
+    - nvim
+
   - name: Cloning Neovim github repo
     ansible.builtin.git:
       repo: 'https://github.com/neovim/neovim'
@@ -46,7 +51,6 @@
     become: yes
     tags:
     - nvim
-
 
   - name: Building Neovim
     command:

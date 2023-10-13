@@ -1,5 +1,6 @@
-  - name: Install fuzzy finder
+  - name: Install productivity packages
     apt:
-      name: fzf
+      name: [ "tmux", "fzf" ]
     tags:
     - misc
+    - productivity

@@ -1,5 +1,0 @@
-  - name: Symbolically linking .dotfiles...
-    shell: cd ~/.dotfiles && ./install
-    ignore_errors: yes
-    tags:
-    - dotbot
