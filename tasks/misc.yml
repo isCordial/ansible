@@ -1,6 +1,7 @@
   - name: Install productivity packages
     apt:
       name: [ "tmux", "fzf" ]
+    become: true
     tags:
     - misc
     - productivity
