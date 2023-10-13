@@ -5,7 +5,7 @@
     personal: "{{ lookup('env', 'HOME') }}/repos/personal"
   pre_tasks:
     - name: Update cache / repos
-    become: true
+      become: true
       apt:
         update_cache: true
         state: present
