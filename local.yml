@@ -26,3 +26,4 @@
   - include: tasks/misc.yml
   - include: tasks/node.yml
   - include: tasks/npm-installs.yml
+  - include: tasks/scripts.yml
