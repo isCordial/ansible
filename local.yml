@@ -2,7 +2,13 @@
   vars:
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+
+    source_script: "./.scripts/git-rekt"
+    dest_script: "{{ lookup('env', 'HOME') }}/repos"
+
     personal: "{{ lookup('env', 'HOME') }}/repos/personal"
+    work: "{{ lookup('env', 'HOME') }}/repos/work"
+    public: "{{ lookup('env', 'HOME') }}/repos/public"
   pre_tasks:
     - name: Update cache / repos
       become: true

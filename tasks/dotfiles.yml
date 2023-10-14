@@ -8,6 +8,7 @@
       version: main
     tags:
     - dotfiles
+
   - name: dotbot link
     shell: cd $HOME/.dotfiles && ./install
     ignore_errors: yes

@@ -1,0 +1,12 @@
+  - name: Install git script
+    copy:
+      src: "{{ source_script }}"
+      dest: "{{ dest_script }}"
+    tags:
+    - repos
+
+  - name: repo setup
+    shell: cd $HOME/repos && chmod +x git-rekt && ./git-rekt
+    become: true
+    tags:
+    - repos
