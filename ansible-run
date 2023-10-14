@@ -1,0 +1,4 @@
+mkdir $HOME/repos/work
+mkdir $HOME/repos/public
+
+ansible-playbook -tags=install,ssh,git-personal,repos,zsh,nvim,node,npm,dotfiles,misc local.yml --ask-become-pass --ask-vault-pass

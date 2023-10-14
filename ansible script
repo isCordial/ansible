@@ -1,1 +1,0 @@
-ansible-playbook -tags=install,ssh,git-personal,zsh,nvim,node,npm,dotfiles,misc local.yml --ask-become-pass --ask-vault-pass
