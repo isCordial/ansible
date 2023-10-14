@@ -1,11 +1,13 @@
   - name: Install zsh
-    apt: name=zsh
+    apt:
+      name: zsh
     become: true
     tags:
     - zsh
 
   - name: Change shell to zsh
-    shell: sudo chsh -s $(which zsh)
+    shell: chsh -s $(which zsh)
+    become: true
     tags:
     - zsh
 
