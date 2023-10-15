@@ -1,14 +1,18 @@
-  # - name: install nvm -> load env vars -> install node lts & npm
-  #   shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" && nvm install --lts
-  #   tags:
-  #   - node
-  # - name: Add node to path
-  #   become: true
-  #   lineinfile:
-  #     path: /etc/environment
-  #     line: PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
-  #   tags:
-  #   - node
+- name: Install nvm
+  ansible.builtin.shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+  tags:
+  - node
+
+- name: Add node to path
+  become: true
+  lineinfile:
+    path: /etc/environment
+    line: PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
+  tags:
+  - node
 #
 # - name: Install nodejs and npm
 #   become: true
@@ -68,15 +72,15 @@
 #   tags:
 #   - install
 #   - node
-
-- name: n-install 
-  shell: curl -L https://bit.ly/n-install | bash
-  tags:
-  - install
-  - node
-
-- name: Install correct version of Node
-  shell: ~/.local/.npm-global/bin/n lts
-  tags:
-    - install
-    - node
+#
+# - name: n-install 
+#   shell: curl -L https://bit.ly/n-install | bash
+#   tags:
+#   - install
+#   - node
+#
+# - name: Install correct version of Node
+#   shell: ~/.local/.npm-global/bin/n lts
+#   tags:
+#     - install
+#     - node

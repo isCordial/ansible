@@ -1,12 +1,20 @@
-  - name: Install git script
-    copy:
-      src: "{{ source_script }}"
-      dest: "{{ dest_script }}"
-    tags:
-    - repos
+- name: Install git script
+  copy:
+    src: "{{ source_script }}"
+    dest: "{{ dest_script }}"
+  tags:
+  - repos
 
-  - name: repo setup
-    shell: cd $HOME/repos && chmod +x git-rekt.sh && ./git-rekt.sh
-    become_user: t
-    tags:
+- name: repo setup
+  shell: cd $HOME/repos && chmod +x git-rekt.sh && ./git-rekt.sh
+  become_user: t
+  tags:
+  - repos
+
+- name: clone ansible repo via ssh
+  ansible.builtin.git:
+    repo: git@github.com:isCordial/ansible.git
+    dest: ~/repos/personal/ansible
+  become_user: t
+  tags:
     - repos
