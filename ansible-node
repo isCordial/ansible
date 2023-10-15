@@ -1,1 +1,1 @@
-
+ansible-playbook -t node local.yml --ask-become-pass
