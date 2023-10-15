@@ -12,3 +12,11 @@
     value: "isCordial"
   tags:
   - git-personal
+
+- name: clone ansible repo via ssh
+  ansible.builtin.git:
+    repo: git@github.com:isCordial/ansible.git
+    dest: ~/repos/personal/ansible
+  become_user: t
+  tags:
+    - git-personal
