@@ -2,6 +2,7 @@ mkdir $HOME/repos
 mkdir $HOME/repos/personal
 mkdir $HOME/repos/work
 mkdir $HOME/repos/public
+mkdir $HOME/repos/public/neovim
 
 sudo apt update -y
 sudo apt upgrade -y
