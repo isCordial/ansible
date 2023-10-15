@@ -2,4 +2,8 @@ mkdir $HOME/repos/personal
 mkdir $HOME/repos/work
 mkdir $HOME/repos/public
 
+sudo apt update
+sudo apt upgrade
+sudo apt install ansible
+
 ansible-playbook -tags=install,ssh,git-personal,repos,zsh,nvim,dotfiles,misc local.yml --ask-become-pass --ask-vault-pass
