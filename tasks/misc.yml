@@ -5,3 +5,13 @@
     tags:
     - misc
     - productivity
+
+  - name: Install tmux plugin manager
+    ansible.builtin.git:
+      repo: 'https://github.com/tmux-plugins/tpm'
+      dest: '~/.tmux/plugins/tpm'
+      update: yes
+      version: master
+    tags:
+    - misc
+    - productivity
