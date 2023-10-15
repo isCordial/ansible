@@ -1,3 +1,8 @@
+- name: Make nvm directory
+  shell: mkdir /home/t/.nvm
+  tags:
+  - node
+
 - name: Install nvm
   ansible.builtin.shell: >
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
