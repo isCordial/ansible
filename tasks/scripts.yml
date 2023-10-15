@@ -6,7 +6,7 @@
     - repos
 
   - name: repo setup
-    shell: cd $HOME/repos && chmod +x git-rekt && ./git-rekt
-    become: true
+    shell: cd $HOME/repos && chmod +x git-rekt.sh && ./git-rekt.sh
+    become_user: t
     tags:
     - repos
