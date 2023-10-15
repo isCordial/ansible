@@ -1,6 +1,6 @@
   - name: Remove Neovim
-    shell: rm -rf ~/repos/public/neovim
-    become_user: t
+    shell: rm -r /home/t/repos/public/neovim
+    become: true
     tags:
     - nvim
 
