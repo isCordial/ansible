@@ -17,4 +17,4 @@
     dest: ~/repos/personal/ansible
   become_user: t
   tags:
-    - repos
+  - repos
