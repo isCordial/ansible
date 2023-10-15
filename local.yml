@@ -21,8 +21,8 @@
   - include: tasks/git-setup.yml
   - include: tasks/zsh.yml
   - include: tasks/nvim.yml
-  - include: tasks/dotfiles.yml
   - include: tasks/misc.yml
+  - include: tasks/dotfiles.yml
   - include: tasks/node.yml
   - include: tasks/npm-installs.yml
   - include: tasks/scripts.yml
