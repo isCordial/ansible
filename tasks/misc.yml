@@ -10,8 +10,7 @@
     ansible.builtin.git:
       repo: 'https://github.com/tmux-plugins/tpm'
       dest: '~/.tmux/plugins/tpm'
-      update: yes
-      version: master
+    become_user: t
     tags:
     - misc
     - productivity
