@@ -5,6 +5,7 @@
     value: "21206554+isCordial@users.noreply.github.com"
   tags:
   - git-personal
+  
 - name: Git personal setup name
   git_config:
     name: user.name
