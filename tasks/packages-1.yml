@@ -1,0 +1,6 @@
+  - name: Install build essentials
+    apt:
+      name: [ "build-essential" ]
+    become: true
+    tags:
+    - deps

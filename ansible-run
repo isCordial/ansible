@@ -8,4 +8,4 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install ansible -y
 
-ansible-playbook -tags=install,ssh,git-personal,repos,zsh,nvim,dotfiles,misc local.yml --ask-become-pass --ask-vault-pass
+ansible-playbook -tags=install,deps,ssh,git-personal,repos,zsh,nvim,dotfiles,misc local.yml --ask-become-pass --ask-vault-pass
